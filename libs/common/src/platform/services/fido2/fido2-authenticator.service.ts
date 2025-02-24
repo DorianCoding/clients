@@ -474,12 +474,14 @@ async function createKeyView(
   }
 
   const pkcs8Key = await crypto.subtle.exportKey("pkcs8", keyValue);
+  const publickey = await window.crypto.subtle.exportKey("spki", keyValue);
   const fido2Credential = new Fido2CredentialView();
   fido2Credential.credentialId = Utils.newGuid();
   fido2Credential.keyType = "public-key";
   fido2Credential.keyAlgorithm = "ECDSA";
   fido2Credential.keyCurve = "P-256";
   fido2Credential.keyValue = Fido2Utils.bufferToString(pkcs8Key);
+  fido2Credential.publickey = Fido2Utils.exportpublickey(publickey);
   fido2Credential.rpId = params.rpEntity.id;
   fido2Credential.userHandle = Fido2Utils.bufferToString(params.userEntity.id);
   fido2Credential.userName = params.userEntity.name;

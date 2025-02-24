@@ -11,7 +11,10 @@ export class Fido2Utils {
   static stringToBuffer(str: string): Uint8Array {
     return Fido2Utils.fromB64ToArray(Fido2Utils.fromUrlB64ToB64(str));
   }
-
+  static exportpublickey(key: ArrayBuffer): string {
+    const exportedAsString = String.fromCharCode.apply(null, new Uint8Array(key));
+    return window.btoa(exportedAsString);
+  }
   static bufferSourceToUint8Array(bufferSource: BufferSource): Uint8Array {
     if (Fido2Utils.isArrayBuffer(bufferSource)) {
       return new Uint8Array(bufferSource);
