@@ -79,7 +79,7 @@ export class UnsecuredWebsitesReportComponent extends CipherReportComponent impl
     }
 
     const containsUnsecured = cipher.login.uris.some(
-      (u: any) => u.uri != null && u.uri.indexOf("http://") === 0,
+      (u: any) => u.uri != null && u.uri.indexOf("http://") === 0 && u.uri.indexOf("http://localhost") !== 0 && u.uri.indexOf("http://127.0.0.1") !== 0,
     );
     return containsUnsecured;
   }
