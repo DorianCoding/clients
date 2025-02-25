@@ -120,7 +120,7 @@
               *ngIf="cipher.login.hasFido2Credentials && !cloneMode"
               appBoxRow
               tabindex="0"
-              attr.aria-label="{{ 'typePasskey' | i18n }} {{ fido2CredentialCreationDateValue }}"
+              attr.aria-label="{{ 'typePasskey' | i18n }} {{ fido2CredentialHash }}"
             >
               <button
                 type="button"
@@ -133,7 +133,7 @@
               </button>
               <div class="row-main">
                 <span class="row-label">{{ "typePasskey" | i18n }}</span>
-                {{ fido2CredentialCreationDateValue }}
+                {{ fido2CredentialHash }}
               </div>
             </div>
 
