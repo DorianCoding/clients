@@ -78,10 +78,7 @@ export class LoginCredentialsViewComponent {
     return `${dateCreated} ${creationDate}`;
   }
   get fido2CredentialHash(): string {
-    const key = this.datePipe.transform(
-      this.cipher.login.fido2Credentials[0]?.publickey,
-      "short",
-    );
+    const key = this.cipher.login.fido2Credentials[0]?.publickey;
     return `${key}`;
   }
   async getPremium(organizationId?: string) {
