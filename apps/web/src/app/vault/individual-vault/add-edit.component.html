@@ -203,7 +203,7 @@
                   class="tw-flex tw-flex-row"
                   tabindex="0"
                   attr.aria-label="{{ 'typePasskey' | i18n }} {{
-                    fido2CredentialCreationDateValue
+                    fido2CredentialHash
                   }}"
                 >
                   <input
@@ -211,7 +211,7 @@
                     class="form-control"
                     type="text"
                     name="Login.Fido2credential"
-                    [value]="fido2CredentialCreationDateValue"
+                    [value]="fido2CredentialHash"
                     appInputVerbatim
                     disabled
                     readonly
@@ -225,6 +225,7 @@
                   >
                     <i class="bwi bwi-lg bwi-minus-circle"></i>
                   </button>
+                  <label>{{ fido2CredentialCreationDateValue }}</label>
                 </div>
               </div>
             </div>
