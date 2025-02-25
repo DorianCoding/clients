@@ -111,7 +111,7 @@ export class AddEditComponent implements OnInit, OnDestroy {
     return `${dateCreated} ${creationDate}`;
   }
   get fido2CredentialHash(): string {
-    const key = this.cipher.login.fido2Credentials[0]?.publickey;
+    const key = this.cipher?.login?.fido2Credentials?.[0]?.publickey;
     return `${key}`;
   }
   constructor(
