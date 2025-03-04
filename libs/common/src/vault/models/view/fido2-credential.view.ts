@@ -10,7 +10,7 @@ export class Fido2CredentialView extends ItemView {
   keyAlgorithm: "ECDSA";
   keyCurve: "P-256";
   keyValue: string;
-  publickey: string;
+  publickey: string = null;
   rpId: string;
   userHandle: string;
   userName: string;
@@ -27,7 +27,7 @@ export class Fido2CredentialView extends ItemView {
   static fromJSON(obj: Partial<Jsonify<Fido2CredentialView>>): Fido2CredentialView {
     const creationDate = obj.creationDate != null ? new Date(obj.creationDate) : null;
     return Object.assign(new Fido2CredentialView(), obj, {
-      creationDate,
+      creationDate
     });
   }
 }

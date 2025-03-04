@@ -96,7 +96,9 @@ export class LoginDetailsSectionComponent implements OnInit {
     );
     return `${dateCreated} ${creationDate}`;
   }
-
+  get fido2CredentialHash(): string {
+    return this.existingFido2Credentials?.[0]?.publickey;
+  }
   get viewHiddenFields() {
     if (this.cipherFormContainer.originalCipherView) {
       return this.cipherFormContainer.originalCipherView.viewPassword;
